@@ -78,7 +78,7 @@ h1 em, h2 em { color: var(--orange); font-style: normal; }
 .hero-notes { display: flex; gap: 28px; margin-top: 50px; color: var(--muted); font-size: 12px; }
 .hero-notes b { display: inline-block; margin-right: 7px; color: var(--orange); font-size: 10px; letter-spacing: .1em; }
 .hero-visual { position: relative; min-height: 470px; }
-.hero-image-wrap { position: absolute; top: 0; right: 0; width: min(100%, 600px); height: 470px; overflow: hidden; border-radius: 47% 47% 22px 22px; background: #e9dfd1; box-shadow: var(--shadow); }
+.hero-image-wrap { position: absolute; top: 0; right: 0; width: min(100%, 600px); height: 470px; overflow: hidden; border-radius: 32px 32px 22px 22px; background: #e9dfd1; box-shadow: var(--shadow); }
 .hero-image-wrap::after { position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.32); border-radius: inherit; content: ""; pointer-events: none; }
 .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .floating-label { position: absolute; z-index: 1; padding: 10px 15px; border-radius: 999px; color: var(--ink); background: rgba(255, 253, 249, .9); box-shadow: 0 7px 20px rgba(48, 42, 37, .1); font-size: 12px; font-weight: 800; }
@@ -113,7 +113,7 @@ h1 em, h2 em { color: var(--orange); font-style: normal; }
 .product-info h3 { margin-bottom: 5px; font-size: 17px; letter-spacing: -.02em; }
 .product-info p { min-height: 48px; margin-bottom: 17px; color: var(--muted); font-size: 13px; line-height: 1.65; }
 .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; }
-.price { font-family: Georgia, serif; font-size: 20px; font-weight: 700; }
+.price { font-family: inherit; font-size: 18px; font-weight: 800; letter-spacing: .01em; }
 .add-button { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: transparent; cursor: pointer; font-size: 12px; font-weight: 800; transition: color .2s ease, background .2s ease, border .2s ease; }
 .add-button:hover { border-color: var(--orange); color: #fff; background: var(--orange); }
 .add-button span { color: var(--orange); font-size: 17px; line-height: 1; }
@@ -169,7 +169,7 @@ h1 em, h2 em { color: var(--orange); font-style: normal; }
 .cart-line-visual { display: grid; place-items: center; width: 67px; height: 67px; border-radius: 13px; background: #f1dfc9; font-size: 29px; }
 .cart-line h3 { margin: 0 0 4px; font-size: 14px; }
 .cart-line small { color: var(--muted); font-size: 11px; }
-.cart-line-price { align-self: start; font-family: Georgia, serif; font-size: 15px; font-weight: 700; }
+.cart-line-price { align-self: start; font-family: inherit; font-size: 14px; font-weight: 800; letter-spacing: .01em; }
 .quantity-control { display: inline-flex; align-items: center; gap: 9px; margin-top: 9px; color: var(--ink); }
 .quantity-control button { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: transparent; cursor: pointer; font-size: 16px; line-height: 1; }
 .quantity-control button:hover { border-color: var(--orange); color: var(--orange); }
@@ -183,7 +183,7 @@ h1 em, h2 em { color: var(--orange); font-style: normal; }
 .cart-empty p, .checkout-success p { max-width: 245px; margin-bottom: 22px; color: var(--muted); font-size: 13px; }
 .cart-footer { padding-top: 19px; border-top: 1px solid var(--line); }
 .subtotal-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
-.subtotal-row strong { font-family: Georgia, serif; font-size: 23px; }
+.subtotal-row strong { font-family: inherit; font-size: 21px; font-weight: 800; letter-spacing: .01em; }
 .shipping-note { margin-bottom: 17px; color: var(--muted); font-size: 11px; }
 .checkout-button { width: 100%; border: 0; }
 .checkout-button:disabled { cursor: not-allowed; opacity: .42; transform: none; box-shadow: none; }
@@ -220,7 +220,7 @@ h1 em, h2 em { color: var(--orange); font-style: normal; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 18px; }
   .hero-notes { gap: 15px; margin-top: 35px; }
   .hero-visual { min-height: 300px; }
-  .hero-image-wrap { height: 300px; border-radius: 42% 42% 19px 19px; }
+  .hero-image-wrap { height: 300px; border-radius: 24px 24px 18px 18px; }
   .floating-label { padding: 8px 11px; font-size: 10px; }
   .label-top { top: 18px; left: 15px; }
   .label-bottom { right: 15px; bottom: 15px; }
