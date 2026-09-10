@@ -1,0 +1,31 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies
+node_modules/
+
+# Build output and caches
+dist/
+build/
+.cache/
+.parcel-cache/
+.vite/
+coverage/
+*.log
+
+# Local-only deployment metadata
+.openai/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp

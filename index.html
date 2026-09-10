@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="尾巴食集：为狗狗和猫咪挑选天然、安心的日常小零食。" />
+    <title>尾巴食集 · TAIL &amp; TREAT</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="announcement">新客首单满 ¥99 免运费 <span>·</span> 每周三上新</div>
+      <div class="nav-shell shell">
+        <a class="brand" href="#top" aria-label="尾巴食集首页">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>
+            <strong>尾巴食集</strong>
+            <small>TAIL &amp; TREAT</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="主导航">
+          <a href="#products">选零食</a>
+          <a href="#values">安心标准</a>
+          <a href="#story">关于我们</a>
+        </nav>
+        <button class="cart-trigger" id="cartTrigger" type="button" aria-label="打开购物车">
+          <span class="cart-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img"><path d="M4 5h2l1.6 10.1a2 2 0 0 0 2 1.7h7.6a2 2 0 0 0 1.9-1.4L21 8H7.2M10 20.2h.01M18 20.2h.01" /></svg>
+          </span>
+          <span>购物车</span>
+          <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> 给认真生活的小伙伴</p>
+          <h1>每一口，都是<br /><em>被好好照顾的喜欢。</em></h1>
+          <p class="hero-description">从一块小方到一根洁齿棒，选用看得懂的食材，做成毛孩子每天都期待的小奖励。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#products">逛逛今日好吃的 <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#values">了解安心标准 <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-notes" aria-label="品牌承诺">
+            <span><b>01</b> 配料表简单</span>
+            <span><b>02</b> 小批量制作</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-wrap">
+            <img src="assets/hero-dog-treats.png" alt="一只小狗和一碗宠物零食" />
+            <span class="floating-label label-top">天然好食材</span>
+            <span class="floating-label label-bottom"><span class="label-star">✦</span> 今日推荐</span>
+          </div>
+          <div class="hero-sticker" aria-hidden="true">好吃<br />不将就</div>
+        </div>
+      </section>
+
+      <section class="product-section shell" id="products">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">把喜欢的，带回家</p>
+            <h2>今天吃哪一款？</h2>
+          </div>
+          <p class="section-intro">从日常奖励到洁齿护理，<br />每一款都为小小的快乐准备。</p>
+        </div>
+        <div class="filter-row" role="tablist" aria-label="商品分类">
+          <button class="filter-button is-active" type="button" data-filter="all" role="tab" aria-selected="true">全部</button>
+          <button class="filter-button" type="button" data-filter="dog" role="tab" aria-selected="false">狗狗</button>
+          <button class="filter-button" type="button" data-filter="cat" role="tab" aria-selected="false">猫咪</button>
+          <button class="filter-button" type="button" data-filter="training" role="tab" aria-selected="false">训练奖励</button>
+          <button class="filter-button" type="button" data-filter="dental" role="tab" aria-selected="false">洁齿</button>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+        <p class="no-results" id="noResults" hidden>这一类暂时卖光啦，换个分类看看吧。</p>
+      </section>
+
+      <section class="values-section" id="values">
+        <div class="shell">
+          <div class="values-header">
+            <p class="eyebrow">安心，是我们唯一的底线</p>
+            <h2>给它吃的，<br /><em>和给自己选的一样认真。</em></h2>
+          </div>
+          <div class="values-grid">
+            <article class="value-card value-card-orange">
+              <span class="value-number">01</span>
+              <span class="value-icon" aria-hidden="true">◒</span>
+              <h3>成分简单</h3>
+              <p>每一项原料都清清楚楚，不用猜，也不藏着。</p>
+            </article>
+            <article class="value-card value-card-green">
+              <span class="value-number">02</span>
+              <span class="value-icon" aria-hidden="true">⌁</span>
+              <h3>低温烘焙</h3>
+              <p>慢慢烘出自然香气，把食材本来的好留住。</p>
+            </article>
+            <article class="value-card value-card-cream">
+              <span class="value-number">03</span>
+              <span class="value-icon" aria-hidden="true">♡</span>
+              <h3>小批量做</h3>
+              <p>新鲜一点，再新鲜一点，只为让它吃得开心。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section shell" id="story">
+        <div class="story-card">
+          <div class="story-copy">
+            <p class="eyebrow">关于尾巴食集</p>
+            <h2>日子很长，<br /><em>慢慢陪它吃很多好东西。</em></h2>
+            <p>我们相信，照顾毛孩子不一定要很复杂。一份看得懂的配料表，一次愿意分享的小奖励，就足够把普通的一天变得更柔软。</p>
+            <a class="text-link" href="#products">去挑一份小心意 <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="story-illustration" aria-hidden="true">
+            <span class="orbit orbit-one"></span>
+            <span class="orbit orbit-two"></span>
+            <span class="story-emoji">🐶</span>
+            <span class="story-biscuit biscuit-one">✦</span>
+            <span class="story-biscuit biscuit-two">●</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div>
+          <a class="brand brand-footer" href="#top">
+            <span class="brand-mark" aria-hidden="true">✦</span>
+            <span><strong>尾巴食集</strong><small>TAIL &amp; TREAT</small></span>
+          </a>
+          <p>把每一天，都变成值得摇尾巴的一天。</p>
+        </div>
+        <div class="footer-meta">
+          <span>本地演示页面</span>
+          <span>© 2024 Tail &amp; Treat</span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay" hidden></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">把喜欢的都装进来</p>
+          <h2 id="cartTitle">你的购物车</h2>
+        </div>
+        <button class="icon-button" id="cartClose" type="button" aria-label="关闭购物车">×</button>
+      </div>
+      <div class="cart-body">
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-empty" id="cartEmpty" hidden>
+          <span class="empty-icon" aria-hidden="true">♡</span>
+          <h3>购物车还是空的</h3>
+          <p>去选几样它会开心的小零食吧。</p>
+          <a class="button button-dark" href="#products" id="emptyCartLink">去逛逛</a>
+        </div>
+        <div class="checkout-success" id="checkoutSuccess" hidden>
+          <span class="success-icon" aria-hidden="true">✓</span>
+          <h3>演示订单已提交</h3>
+          <p>这是一个本地演示，不会产生真实订单。谢谢你给毛孩子的这份心意。</p>
+          <button class="button button-dark" id="continueShopping" type="button">继续逛逛</button>
+        </div>
+      </div>
+      <div class="cart-footer" id="cartFooter">
+        <div class="subtotal-row"><span>小计</span><strong id="cartSubtotal">¥0.00</strong></div>
+        <p class="shipping-note">满 ¥99 免运费 · 本地演示无需付款</p>
+        <button class="button button-primary checkout-button" id="checkoutButton" type="button" disabled>模拟结算 <span aria-hidden="true">→</span></button>
+      </div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
