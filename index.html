@@ -23,6 +23,10 @@
           <a href="#values">安心标准</a>
           <a href="#story">关于我们</a>
         </nav>
+        <button class="account-trigger" id="accountTrigger" type="button" aria-label="打开登录或个人中心">
+          <span class="account-icon" aria-hidden="true">♙</span>
+          <span id="accountLabel">登录/注册</span>
+        </button>
         <button class="cart-trigger" id="cartTrigger" type="button" aria-label="打开购物车">
           <span class="cart-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" role="img"><path d="M4 5h2l1.6 10.1a2 2 0 0 0 2 1.7h7.6a2 2 0 0 0 1.9-1.4L21 8H7.2M10 20.2h.01M18 20.2h.01" /></svg>
@@ -66,12 +70,19 @@
           </div>
           <p class="section-intro">从日常奖励到洁齿护理，<br />每一款都为小小的快乐准备。</p>
         </div>
-        <div class="filter-row" role="tablist" aria-label="商品分类">
-          <button class="filter-button is-active" type="button" data-filter="all" role="tab" aria-selected="true">全部</button>
-          <button class="filter-button" type="button" data-filter="dog" role="tab" aria-selected="false">狗狗</button>
-          <button class="filter-button" type="button" data-filter="cat" role="tab" aria-selected="false">猫咪</button>
-          <button class="filter-button" type="button" data-filter="training" role="tab" aria-selected="false">训练奖励</button>
-          <button class="filter-button" type="button" data-filter="dental" role="tab" aria-selected="false">洁齿</button>
+        <div class="filter-row" aria-label="商品分类">
+          <div class="filter-group">
+            <span class="filter-label">先选宠物</span>
+            <div class="filter-options" id="petFilters" role="tablist" aria-label="宠物分类">
+              <button class="filter-button is-active" type="button" data-pet="all" role="tab" aria-selected="true">全部</button>
+              <button class="filter-button" type="button" data-pet="dog" role="tab" aria-selected="false">狗狗</button>
+              <button class="filter-button" type="button" data-pet="cat" role="tab" aria-selected="false">猫咪</button>
+            </div>
+          </div>
+          <div class="filter-group category-filter-group" id="categoryFilterGroup">
+            <span class="filter-label">再选食品</span>
+            <div class="filter-options" id="categoryFilters" role="tablist" aria-label="食品分类"></div>
+          </div>
         </div>
         <div class="product-grid" id="productGrid"></div>
         <p class="no-results" id="noResults" hidden>这一类暂时卖光啦，换个分类看看吧。</p>
@@ -171,6 +182,120 @@
         <button class="button button-primary checkout-button" id="checkoutButton" type="button" disabled>模拟结算 <span aria-hidden="true">→</span></button>
       </div>
     </aside>
+
+    <div class="modal" id="accountModal" hidden>
+      <div class="modal-backdrop" data-close-modal="accountModal"></div>
+      <section class="modal-dialog account-dialog" role="dialog" aria-modal="true" aria-labelledby="accountModalTitle">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">本地演示账号</p>
+            <h2 id="accountModalTitle">登录尾巴食集</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-modal="accountModal" aria-label="关闭账号窗口">×</button>
+        </div>
+
+        <div class="auth-view" id="authView">
+          <div class="auth-tabs" role="tablist" aria-label="登录或注册">
+            <button class="auth-tab is-active" id="loginTab" type="button" data-auth-mode="login" role="tab" aria-selected="true">登录</button>
+            <button class="auth-tab" id="registerTab" type="button" data-auth-mode="register" role="tab" aria-selected="false">注册</button>
+          </div>
+          <form id="authForm" novalidate>
+            <label class="form-field register-only" id="nameField" hidden>
+              <span>怎么称呼你</span>
+              <input id="authName" name="name" type="text" autocomplete="name" placeholder="例如：小林" />
+            </label>
+            <label class="form-field">
+              <span>手机号</span>
+              <input id="authPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="请输入 11 位手机号" />
+            </label>
+            <label class="form-field">
+              <span>密码</span>
+              <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="至少 6 位" />
+            </label>
+            <p class="form-error" id="authError" role="alert" hidden></p>
+            <p class="form-hint" id="authHint">登录后即可保存收货地址，下次结算更方便。</p>
+            <button class="button button-primary form-submit" id="authSubmit" type="submit">登录 <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+
+        <div class="account-view" id="accountView" hidden>
+          <div class="account-summary">
+            <span class="account-avatar" aria-hidden="true">✦</span>
+            <div>
+              <strong id="accountName">尾巴朋友</strong>
+              <small id="accountPhone"></small>
+            </div>
+          </div>
+          <div class="address-section-heading">
+            <div>
+              <p class="eyebrow">收货信息</p>
+              <h3>默认地址</h3>
+            </div>
+            <span class="address-status" id="accountAddressStatus">还没有地址</span>
+          </div>
+          <form id="accountAddressForm" class="address-form" novalidate>
+            <div class="form-grid">
+              <label class="form-field">
+                <span>收货人</span>
+                <input id="accountRecipient" name="recipient" type="text" autocomplete="name" placeholder="请输入姓名" />
+              </label>
+              <label class="form-field">
+                <span>联系电话</span>
+                <input id="accountAddressPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="请输入手机号" />
+              </label>
+            </div>
+            <label class="form-field">
+              <span>省 / 市 / 区</span>
+              <input id="accountRegion" name="region" type="text" autocomplete="address-level1" placeholder="例如：浙江省 杭州市 西湖区" />
+            </label>
+            <label class="form-field">
+              <span>详细地址</span>
+              <input id="accountDetail" name="detail" type="text" autocomplete="street-address" placeholder="街道、门牌号、小区和房间号" />
+            </label>
+            <p class="form-error" id="accountAddressError" role="alert" hidden></p>
+            <button class="button button-dark form-submit" type="submit">保存地址 <span aria-hidden="true">→</span></button>
+          </form>
+          <button class="text-button logout-button" id="logoutButton" type="button">退出当前账号</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal" id="checkoutModal" hidden>
+      <div class="modal-backdrop" data-close-modal="checkoutModal"></div>
+      <section class="modal-dialog checkout-dialog" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">最后确认一下</p>
+            <h2 id="checkoutModalTitle">填写收货地址</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-modal="checkoutModal" aria-label="关闭结算窗口">×</button>
+        </div>
+        <div class="checkout-summary" id="checkoutSummary"></div>
+        <form id="checkoutForm" class="address-form" novalidate>
+          <div class="form-grid">
+            <label class="form-field">
+              <span>收货人</span>
+              <input id="checkoutRecipient" name="recipient" type="text" autocomplete="name" placeholder="请输入姓名" />
+            </label>
+            <label class="form-field">
+              <span>联系电话</span>
+              <input id="checkoutAddressPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="请输入手机号" />
+            </label>
+          </div>
+          <label class="form-field">
+            <span>省 / 市 / 区</span>
+            <input id="checkoutRegion" name="region" type="text" autocomplete="address-level1" placeholder="例如：浙江省 杭州市 西湖区" />
+          </label>
+          <label class="form-field">
+            <span>详细地址</span>
+            <input id="checkoutDetail" name="detail" type="text" autocomplete="street-address" placeholder="街道、门牌号、小区和房间号" />
+          </label>
+          <p class="form-error" id="checkoutError" role="alert" hidden></p>
+          <button class="button button-primary form-submit" type="submit">保存地址并提交订单 <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="modal-footnote">本地演示无需付款，地址只保存在当前浏览器中。</p>
+      </section>
+    </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
